@@ -1,0 +1,31 @@
+def findMajorityVote(X, n):
+    count = 0
+    candidate = None
+    for i in range(n):
+        if count == 0:
+            candidate = X[i]
+            count = 1
+        elif X[i] == candidate:
+            count += 1
+        else:
+            count -= 1
+    if countFreq(X, 0, n-1, candidate) > n/2:
+        return candidate
+    else:
+        return None
+
+def countFreq(X, left, right, candidate):
+    count = 0
+    for i in range(left, right+1):
+        if X[i] == candidate:
+            count += 1
+    return count
+
+
+#example input
+#seq = ["Odysseas", "Meni", "Odysseas", "Koymparos", "Odysseas", "Koymparos","Odysseas","Meni"] #output: none
+seq = ["Odysseas", "Odysseas", "Odysseas", "Koymparos", "Odysseas", "Koymparos","Odysseas","Meni"]#output: Odysseas
+
+result = findMajorityVote(seq,len(seq))
+
+print("The result is: ",result)
