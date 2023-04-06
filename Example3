@@ -5,7 +5,7 @@ def findMajorityVote(X, n):
         if count == 0:
             candidate = X[i]
             count = 1
-        else if X[i] == candidate:
+        elif X[i] == candidate:
             count += 1
         else:
             count -= 1
